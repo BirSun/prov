@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <!--  CSS -->
+     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+<h1>My Library</h1>
+        {% if user == []: %}
+        <p>Library is empty.</p>
+        {% endif %}
+    <ul>
+        {% for user in Users %}
+
+
+             <div class="form-check">
+
+                  {% if user.done == True %}
+
+                   <input type="checkbox" class="checkmark" checked="checked" onclick="window.location.href='/complete/{{ user.id }}';"  id="DefaultCheckbox2" name="done">
+
+               <!--<input type="checkbox"  checked="checked" id="DefaultCheckbox2" name="done">-->
+                 <label class="form-check-label" for="DefaultCheckbox2"><label/>
+                 <a href="{{ url_for('delete', id=user.id) }}">Delete</a>
+                 {{user.id}} - {{user.name}} - {{user.email}} - {{user.done}}
+                 <a href="{{ url_for('edit', id=user.id) }}">Edit Done</a>
+
+                     {% else %}
+                <label class="form-check-label" for="DefaultCheckbox"><label/>
+                <input type="checkbox" class="checkmark1" onclick="window.location.href='/complete_false/{{ user.id }}';"  id="DefaultCheckbox" name="done">
+
+
+             <a href="{{ url_for('delete', id=user.id) }}">Delete</a>
+             {{user.id}} - {{user.name}} - {{user.email}} - {{user.done}}
+             <a href="{{ url_for('edit', id=user.id) }}">Edit Done</a>
+
+
+
+            {% endif %}
+        {% endfor %}
+    </ul>
+<a href="{{ url_for('add') }}">Add New Book</a>
+</body>
+</html>
+
+<script>
+
+function check() {
+
+    getElementById("DefaultCheckbox2").checked = true;
+
+}
+
+</script>
+
+<style>
+ /* Create a custom checkbox */
+input.checkmark {
+            width: 40px;
+            height: 40px;
+        }
+input.checkmark1 {
+            width: 40px;
+            height: 40px;
+        }
+
+.form-check-label{
+    font-size: 25px
+}
+
+</style>

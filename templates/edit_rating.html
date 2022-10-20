@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Done</title>
+</head>
+<body>
+     <form action="{{ url_for('edit') }}" method="POST">
+        <p>User Name: {{user.email}}</p>
+        <p>Current Rating {{user.done}}</p>
+         <input hidden="hidden" name="id" value="{{user.id}}">
+        <input name="name" type="text" placeholder="New Rating">
+        <button type="submit">Change done</button>
+    </form>
+</body>
+</html>

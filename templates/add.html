@@ -1,0 +1,22 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <form action="{{ url_for('add') }}" method="POST">
+        <label>User Name</label>
+        <input name="name" type="text">
+        <label>Book Email</label>
+        <input name="email" type="text">
+        <label>Done</label>
+
+        <button type="submit">Add User</button>
+    </form>
+</body>
+</html>
+
