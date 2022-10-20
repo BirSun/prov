@@ -140,7 +140,7 @@ def complete_false(user_id):
     db.session.commit()
     return redirect(url_for("home"))
 
-#update = user.query.filter_by(uid=id).first()
+#update = user.query.filter_by(uid=id).first
 #update.approved = True
 #usr.session.commit()
 
